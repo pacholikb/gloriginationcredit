@@ -38,7 +38,7 @@ annualized_referral_revenue = referral_income[-1] * 12  # Annualized referral re
 percentage_annual_referral_revenue = (annualized_referral_revenue / annualized_revenue) * 100
 
 st.title("Origination Credit Estimator :money_with_wings:")
-st.write("This app is designed to estimate potential earnings for Goodlawyer's through FGC referrals.")
+st.write("This app is designed to estimate potential earnings for Goodlawyers through FGC mandates & origination.")
 
 st.markdown("---")
 
