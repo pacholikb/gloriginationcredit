@@ -14,8 +14,8 @@ with st.sidebar.expander("Fractional Mandates"):
     avg_hourly_rate = st.number_input('Average Hourly Rate', value=200, step=10)
 
 with st.sidebar.expander("Referrals"):
-    num_referrals_per_quarter = st.number_input('Number of Active Referrals per Quarter', min_value=1, value=1, step=1)
-    avg_referral_value = st.number_input('Average Referral Contract Value', value=5000, step=500)
+    num_referrals_per_quarter = st.number_input('Number of Active Referrals per Quarter', min_value=1, value=3, step=1)
+    avg_referral_value = st.number_input('Average Referral Contract Value', value=6500, step=500)
     referral_commission = st.number_input('Referral Commission (%)', value=6, step=1)
 
 hours_worked = num_mandates * hours_per_mandate
