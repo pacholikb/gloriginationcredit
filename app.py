@@ -52,7 +52,7 @@ with cols1[2]:
 
 cols2 = st.columns(4)
 with cols2[0]:
-    ui.metric_card(title="Hours Worked", content=f"{hours_worked}", key="card1")
+    ui.metric_card(title="Monthly Hours Billed", content=f"{hours_worked}", key="card1")
 with cols2[1]:
     ui.metric_card(title="Monthly Earned Income", content=f"${net_income:,.0f}", key="card2")
 with cols2[2]:
