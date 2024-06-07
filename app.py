@@ -4,8 +4,7 @@ import numpy as np
 import streamlit_shadcn_ui as ui
 from local_components import card_container
 
-st.set_page_config(layout="wide")
-
+st.set_page_config(layout="wide", page_icon=":money_with_wings:")
 st.sidebar.header("")
 
 with st.sidebar.expander("Fractional Mandates"):
@@ -44,11 +43,11 @@ st.markdown("---")
 
 cols1 = st.columns(3)
 with cols1[0]:
-    ui.metric_card(title="Total Compensation", content=f"${annualized_revenue:,.0f}", key="card0")
+    ui.metric_card(title="Total Annual Compensation", content=f"${annualized_revenue:,.0f}", key="card0")
 with cols1[1]:
-    ui.metric_card(title="Annualized Origination Revenue", content=f"${annualized_referral_revenue:,.0f}", key="card9")
+    ui.metric_card(title="Annualized Origination Income", content=f"${annualized_referral_revenue:,.0f}", key="card9")
 with cols1[2]:
-    ui.metric_card(title="Origination Revenue (%)", content=f"{percentage_annual_referral_revenue:.2f}%", key="card10")
+    ui.metric_card(title="Origination Income (%)", content=f"{percentage_annual_referral_revenue:.2f}%", key="card10")
 
 cols2 = st.columns(4)
 weekly_hours_worked = hours_worked // 4
