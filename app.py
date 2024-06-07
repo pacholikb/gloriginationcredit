@@ -77,4 +77,4 @@ df.sort_values('Month', inplace=True)
 df.set_index('Month', inplace=True)
 
 with card_container(key="chart1"):
-    st.area_chart(df, use_container_width=True)
+    st.area_chart(df, use_container_width=True, color=["#75bcb4","#046c64"])
