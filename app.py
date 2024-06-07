@@ -68,7 +68,7 @@ mandate_income = np.full((36,), net_income)
 
 df = pd.DataFrame({
     'Month': months,
-    'Mandate Income': mandate_income,
+    'Earned Income': mandate_income,
     'Origination Income': referral_income
 })
 
