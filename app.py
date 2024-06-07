@@ -51,8 +51,9 @@ with cols1[2]:
     ui.metric_card(title="Origination Revenue (%)", content=f"{percentage_annual_referral_revenue:.2f}%", key="card10")
 
 cols2 = st.columns(4)
+weekly_hours_worked = hours_worked / 4
 with cols2[0]:
-    ui.metric_card(title="Monthly Hours Billed", content=f"{hours_worked}", key="card1")
+    ui.metric_card(title="Weekly Hours Billed", content=f"{weekly_hours_worked}", key="card1")
 with cols2[1]:
     ui.metric_card(title="Monthly Earned Income", content=f"${net_income:,.0f}", key="card2")
 with cols2[2]:
@@ -68,7 +69,7 @@ mandate_income = np.full((36,), net_income)
 df = pd.DataFrame({
     'Month': months,
     'Mandate Income': mandate_income,
-    'Referral Income': referral_income
+    'Origination Income': referral_income
 })
 
 df['Month'] = pd.to_datetime(df['Month'], format='%m/%y')
