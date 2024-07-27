@@ -7,13 +7,29 @@ from local_components import card_container
 st.set_page_config(layout="wide", page_icon=":money_with_wings:")
 st.sidebar.header("")
 
+# Add dropdown for preset lawyer examples
+preset_lawyer = st.sidebar.selectbox(
+    "Preset lawyer examples:",
+    ["Angela", "Pat", "Nolan"]
+)
+
+# Define preset values
+presets = {
+    "Angela": {"num_mandates": 3, "num_referrals_per_quarter": 3, "hours_per_mandate": 20},
+    "Pat": {"num_mandates": 5, "num_referrals_per_quarter": 1, "hours_per_mandate": 24},
+    "Nolan": {"num_mandates": 4, "num_referrals_per_quarter": 7, "hours_per_mandate": 25},
+}
+
+# Set default values based on selected preset
+selected_preset = presets[preset_lawyer]
+
 with st.sidebar.expander("Fractional Mandates"):
-    num_mandates = st.number_input('Number of Mandates', min_value=1, value=3, step=1)
-    hours_per_mandate = st.number_input('Average Hours Per Mandate', min_value=1, value=20, step=1)
+    num_mandates = st.number_input('Number of Mandates', min_value=1, value=selected_preset["num_mandates"], step=1)
+    hours_per_mandate = st.number_input('Average Hours Per Mandate', min_value=1, value=selected_preset["hours_per_mandate"], step=1)
     avg_hourly_rate = st.number_input('Average Hourly Rate', value=200, step=10)
 
 with st.sidebar.expander("Referrals"):
-    num_referrals_per_quarter = st.number_input('Active Referrals per Quarter', min_value=1, value=3, step=1)
+    num_referrals_per_quarter = st.number_input('Active Referrals per Quarter', min_value=1, value=selected_preset["num_referrals_per_quarter"], step=1)
     avg_referral_value = st.number_input('Average Contract Value', value=6500, step=500)
     referral_commission = st.number_input('Referral Commission (%)', value=6, step=1)
 
@@ -56,7 +72,7 @@ with cols2[0]:
 with cols2[1]:
     ui.metric_card(title="Monthly Earned Income", content=f"${net_income:,.0f}", key="card2")
 with cols2[2]:
-    ui.metric_card(title="Monthly Origination Income", content=f"${referral_income[-1]:,.0f}", key="card3")  # Last month's referral income
+    ui.metric_card(title="Monthly Origination Income", content=f"${referral_income[-1]:,.0f}", key="card3")  
 with cols2[3]:
     ui.metric_card(title="Effective Hourly", content=f"${effective_hourly_rate:,.0f}", key="card4")
 
